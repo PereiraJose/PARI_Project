@@ -1,4 +1,6 @@
-/home/jose/Desktop/video streaming working/build/CMakeFiles/rebuild_cache.dir
-/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir
 /home/jose/Desktop/video streaming working/build/CMakeFiles/edit_cache.dir
+/home/jose/Desktop/video streaming working/build/CMakeFiles/rebuild_cache.dir
 /home/jose/Desktop/video streaming working/build/CMakeFiles/client.dir
+/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir
+/home/jose/Desktop/video streaming working/build/CMakeFiles/cpfiles.dir
+/home/jose/Desktop/video streaming working/build/CMakeFiles/doc.dir

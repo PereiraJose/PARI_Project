@@ -57,38 +57,116 @@ include CMakeFiles/server.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/server.dir/flags.make
 
-CMakeFiles/server.dir/src/server/server.cpp.o: CMakeFiles/server.dir/flags.make
-CMakeFiles/server.dir/src/server/server.cpp.o: ../src/server/server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/server.dir/src/server/server.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/server/server.cpp.o -c "/home/jose/Desktop/video streaming working/src/server/server.cpp"
+CMakeFiles/server.dir/src/server/s_parent.c.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/server/s_parent.c.o: ../src/server/s_parent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/server.dir/src/server/s_parent.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/src/server/s_parent.c.o   -c "/home/jose/Desktop/video streaming working/src/server/s_parent.c"
 
-CMakeFiles/server.dir/src/server/server.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/server/server.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/jose/Desktop/video streaming working/src/server/server.cpp" > CMakeFiles/server.dir/src/server/server.cpp.i
+CMakeFiles/server.dir/src/server/s_parent.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/src/server/s_parent.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/server/s_parent.c" > CMakeFiles/server.dir/src/server/s_parent.c.i
 
-CMakeFiles/server.dir/src/server/server.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/server/server.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/jose/Desktop/video streaming working/src/server/server.cpp" -o CMakeFiles/server.dir/src/server/server.cpp.s
+CMakeFiles/server.dir/src/server/s_parent.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/src/server/s_parent.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/server/s_parent.c" -o CMakeFiles/server.dir/src/server/s_parent.c.s
 
-CMakeFiles/server.dir/src/server/server.cpp.o.requires:
+CMakeFiles/server.dir/src/server/s_parent.c.o.requires:
 
-.PHONY : CMakeFiles/server.dir/src/server/server.cpp.o.requires
+.PHONY : CMakeFiles/server.dir/src/server/s_parent.c.o.requires
 
-CMakeFiles/server.dir/src/server/server.cpp.o.provides: CMakeFiles/server.dir/src/server/server.cpp.o.requires
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/server.cpp.o.provides.build
-.PHONY : CMakeFiles/server.dir/src/server/server.cpp.o.provides
+CMakeFiles/server.dir/src/server/s_parent.c.o.provides: CMakeFiles/server.dir/src/server/s_parent.c.o.requires
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_parent.c.o.provides.build
+.PHONY : CMakeFiles/server.dir/src/server/s_parent.c.o.provides
 
-CMakeFiles/server.dir/src/server/server.cpp.o.provides.build: CMakeFiles/server.dir/src/server/server.cpp.o
+CMakeFiles/server.dir/src/server/s_parent.c.o.provides.build: CMakeFiles/server.dir/src/server/s_parent.c.o
+
+
+CMakeFiles/server.dir/src/server/s_common.c.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/server/s_common.c.o: ../src/server/s_common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/server.dir/src/server/s_common.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/src/server/s_common.c.o   -c "/home/jose/Desktop/video streaming working/src/server/s_common.c"
+
+CMakeFiles/server.dir/src/server/s_common.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/src/server/s_common.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/server/s_common.c" > CMakeFiles/server.dir/src/server/s_common.c.i
+
+CMakeFiles/server.dir/src/server/s_common.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/src/server/s_common.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/server/s_common.c" -o CMakeFiles/server.dir/src/server/s_common.c.s
+
+CMakeFiles/server.dir/src/server/s_common.c.o.requires:
+
+.PHONY : CMakeFiles/server.dir/src/server/s_common.c.o.requires
+
+CMakeFiles/server.dir/src/server/s_common.c.o.provides: CMakeFiles/server.dir/src/server/s_common.c.o.requires
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_common.c.o.provides.build
+.PHONY : CMakeFiles/server.dir/src/server/s_common.c.o.provides
+
+CMakeFiles/server.dir/src/server/s_common.c.o.provides.build: CMakeFiles/server.dir/src/server/s_common.c.o
+
+
+CMakeFiles/server.dir/src/server/s_main.c.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/server/s_main.c.o: ../src/server/s_main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/server.dir/src/server/s_main.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/src/server/s_main.c.o   -c "/home/jose/Desktop/video streaming working/src/server/s_main.c"
+
+CMakeFiles/server.dir/src/server/s_main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/src/server/s_main.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/server/s_main.c" > CMakeFiles/server.dir/src/server/s_main.c.i
+
+CMakeFiles/server.dir/src/server/s_main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/src/server/s_main.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/server/s_main.c" -o CMakeFiles/server.dir/src/server/s_main.c.s
+
+CMakeFiles/server.dir/src/server/s_main.c.o.requires:
+
+.PHONY : CMakeFiles/server.dir/src/server/s_main.c.o.requires
+
+CMakeFiles/server.dir/src/server/s_main.c.o.provides: CMakeFiles/server.dir/src/server/s_main.c.o.requires
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_main.c.o.provides.build
+.PHONY : CMakeFiles/server.dir/src/server/s_main.c.o.provides
+
+CMakeFiles/server.dir/src/server/s_main.c.o.provides.build: CMakeFiles/server.dir/src/server/s_main.c.o
+
+
+CMakeFiles/server.dir/src/server/s_child.c.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/server/s_child.c.o: ../src/server/s_child.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/server.dir/src/server/s_child.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/src/server/s_child.c.o   -c "/home/jose/Desktop/video streaming working/src/server/s_child.c"
+
+CMakeFiles/server.dir/src/server/s_child.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/src/server/s_child.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/server/s_child.c" > CMakeFiles/server.dir/src/server/s_child.c.i
+
+CMakeFiles/server.dir/src/server/s_child.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/src/server/s_child.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/server/s_child.c" -o CMakeFiles/server.dir/src/server/s_child.c.s
+
+CMakeFiles/server.dir/src/server/s_child.c.o.requires:
+
+.PHONY : CMakeFiles/server.dir/src/server/s_child.c.o.requires
+
+CMakeFiles/server.dir/src/server/s_child.c.o.provides: CMakeFiles/server.dir/src/server/s_child.c.o.requires
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_child.c.o.provides.build
+.PHONY : CMakeFiles/server.dir/src/server/s_child.c.o.provides
+
+CMakeFiles/server.dir/src/server/s_child.c.o.provides.build: CMakeFiles/server.dir/src/server/s_child.c.o
 
 
 # Object files for target server
 server_OBJECTS = \
-"CMakeFiles/server.dir/src/server/server.cpp.o"
+"CMakeFiles/server.dir/src/server/s_parent.c.o" \
+"CMakeFiles/server.dir/src/server/s_common.c.o" \
+"CMakeFiles/server.dir/src/server/s_main.c.o" \
+"CMakeFiles/server.dir/src/server/s_child.c.o"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
 
-server: CMakeFiles/server.dir/src/server/server.cpp.o
+server: CMakeFiles/server.dir/src/server/s_parent.c.o
+server: CMakeFiles/server.dir/src/server/s_common.c.o
+server: CMakeFiles/server.dir/src/server/s_main.c.o
+server: CMakeFiles/server.dir/src/server/s_child.c.o
 server: CMakeFiles/server.dir/build.make
 server: /usr/local/lib/libopencv_stitching.so.3.3.1
 server: /usr/local/lib/libopencv_superres.so.3.3.1
@@ -135,7 +213,7 @@ server: /usr/local/lib/libopencv_objdetect.so.3.3.1
 server: /usr/local/lib/libopencv_imgproc.so.3.3.1
 server: /usr/local/lib/libopencv_core.so.3.3.1
 server: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,7 +221,10 @@ CMakeFiles/server.dir/build: server
 
 .PHONY : CMakeFiles/server.dir/build
 
-CMakeFiles/server.dir/requires: CMakeFiles/server.dir/src/server/server.cpp.o.requires
+CMakeFiles/server.dir/requires: CMakeFiles/server.dir/src/server/s_parent.c.o.requires
+CMakeFiles/server.dir/requires: CMakeFiles/server.dir/src/server/s_common.c.o.requires
+CMakeFiles/server.dir/requires: CMakeFiles/server.dir/src/server/s_main.c.o.requires
+CMakeFiles/server.dir/requires: CMakeFiles/server.dir/src/server/s_child.c.o.requires
 
 .PHONY : CMakeFiles/server.dir/requires
 

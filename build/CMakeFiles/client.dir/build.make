@@ -57,38 +57,142 @@ include CMakeFiles/client.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/client.dir/flags.make
 
-CMakeFiles/client.dir/src/client/client.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/src/client/client.cpp.o: ../src/client/client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/client/client.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client/client.cpp.o -c "/home/jose/Desktop/video streaming working/src/client/client.cpp"
+CMakeFiles/client.dir/src/client/c_main.c.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/client/c_main.c.o: ../src/client/c_main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/client.dir/src/client/c_main.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/src/client/c_main.c.o   -c "/home/jose/Desktop/video streaming working/src/client/c_main.c"
 
-CMakeFiles/client.dir/src/client/client.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client/client.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/jose/Desktop/video streaming working/src/client/client.cpp" > CMakeFiles/client.dir/src/client/client.cpp.i
+CMakeFiles/client.dir/src/client/c_main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/src/client/c_main.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/client/c_main.c" > CMakeFiles/client.dir/src/client/c_main.c.i
 
-CMakeFiles/client.dir/src/client/client.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client/client.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/jose/Desktop/video streaming working/src/client/client.cpp" -o CMakeFiles/client.dir/src/client/client.cpp.s
+CMakeFiles/client.dir/src/client/c_main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/src/client/c_main.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/client/c_main.c" -o CMakeFiles/client.dir/src/client/c_main.c.s
 
-CMakeFiles/client.dir/src/client/client.cpp.o.requires:
+CMakeFiles/client.dir/src/client/c_main.c.o.requires:
 
-.PHONY : CMakeFiles/client.dir/src/client/client.cpp.o.requires
+.PHONY : CMakeFiles/client.dir/src/client/c_main.c.o.requires
 
-CMakeFiles/client.dir/src/client/client.cpp.o.provides: CMakeFiles/client.dir/src/client/client.cpp.o.requires
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/client.cpp.o.provides.build
-.PHONY : CMakeFiles/client.dir/src/client/client.cpp.o.provides
+CMakeFiles/client.dir/src/client/c_main.c.o.provides: CMakeFiles/client.dir/src/client/c_main.c.o.requires
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_main.c.o.provides.build
+.PHONY : CMakeFiles/client.dir/src/client/c_main.c.o.provides
 
-CMakeFiles/client.dir/src/client/client.cpp.o.provides.build: CMakeFiles/client.dir/src/client/client.cpp.o
+CMakeFiles/client.dir/src/client/c_main.c.o.provides.build: CMakeFiles/client.dir/src/client/c_main.c.o
+
+
+CMakeFiles/client.dir/src/client/c_child.c.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/client/c_child.c.o: ../src/client/c_child.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/client.dir/src/client/c_child.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/src/client/c_child.c.o   -c "/home/jose/Desktop/video streaming working/src/client/c_child.c"
+
+CMakeFiles/client.dir/src/client/c_child.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/src/client/c_child.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/client/c_child.c" > CMakeFiles/client.dir/src/client/c_child.c.i
+
+CMakeFiles/client.dir/src/client/c_child.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/src/client/c_child.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/client/c_child.c" -o CMakeFiles/client.dir/src/client/c_child.c.s
+
+CMakeFiles/client.dir/src/client/c_child.c.o.requires:
+
+.PHONY : CMakeFiles/client.dir/src/client/c_child.c.o.requires
+
+CMakeFiles/client.dir/src/client/c_child.c.o.provides: CMakeFiles/client.dir/src/client/c_child.c.o.requires
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_child.c.o.provides.build
+.PHONY : CMakeFiles/client.dir/src/client/c_child.c.o.provides
+
+CMakeFiles/client.dir/src/client/c_child.c.o.provides.build: CMakeFiles/client.dir/src/client/c_child.c.o
+
+
+CMakeFiles/client.dir/src/client/c_parent.c.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/client/c_parent.c.o: ../src/client/c_parent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/client.dir/src/client/c_parent.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/src/client/c_parent.c.o   -c "/home/jose/Desktop/video streaming working/src/client/c_parent.c"
+
+CMakeFiles/client.dir/src/client/c_parent.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/src/client/c_parent.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/client/c_parent.c" > CMakeFiles/client.dir/src/client/c_parent.c.i
+
+CMakeFiles/client.dir/src/client/c_parent.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/src/client/c_parent.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/client/c_parent.c" -o CMakeFiles/client.dir/src/client/c_parent.c.s
+
+CMakeFiles/client.dir/src/client/c_parent.c.o.requires:
+
+.PHONY : CMakeFiles/client.dir/src/client/c_parent.c.o.requires
+
+CMakeFiles/client.dir/src/client/c_parent.c.o.provides: CMakeFiles/client.dir/src/client/c_parent.c.o.requires
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_parent.c.o.provides.build
+.PHONY : CMakeFiles/client.dir/src/client/c_parent.c.o.provides
+
+CMakeFiles/client.dir/src/client/c_parent.c.o.provides.build: CMakeFiles/client.dir/src/client/c_parent.c.o
+
+
+CMakeFiles/client.dir/src/client/c_common.c.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/client/c_common.c.o: ../src/client/c_common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/client.dir/src/client/c_common.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/src/client/c_common.c.o   -c "/home/jose/Desktop/video streaming working/src/client/c_common.c"
+
+CMakeFiles/client.dir/src/client/c_common.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/src/client/c_common.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/client/c_common.c" > CMakeFiles/client.dir/src/client/c_common.c.i
+
+CMakeFiles/client.dir/src/client/c_common.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/src/client/c_common.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/client/c_common.c" -o CMakeFiles/client.dir/src/client/c_common.c.s
+
+CMakeFiles/client.dir/src/client/c_common.c.o.requires:
+
+.PHONY : CMakeFiles/client.dir/src/client/c_common.c.o.requires
+
+CMakeFiles/client.dir/src/client/c_common.c.o.provides: CMakeFiles/client.dir/src/client/c_common.c.o.requires
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_common.c.o.provides.build
+.PHONY : CMakeFiles/client.dir/src/client/c_common.c.o.provides
+
+CMakeFiles/client.dir/src/client/c_common.c.o.provides.build: CMakeFiles/client.dir/src/client/c_common.c.o
+
+
+CMakeFiles/client.dir/src/client/c_callback_parent.c.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/client/c_callback_parent.c.o: ../src/client/c_callback_parent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/client.dir/src/client/c_callback_parent.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/src/client/c_callback_parent.c.o   -c "/home/jose/Desktop/video streaming working/src/client/c_callback_parent.c"
+
+CMakeFiles/client.dir/src/client/c_callback_parent.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/src/client/c_callback_parent.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/jose/Desktop/video streaming working/src/client/c_callback_parent.c" > CMakeFiles/client.dir/src/client/c_callback_parent.c.i
+
+CMakeFiles/client.dir/src/client/c_callback_parent.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/src/client/c_callback_parent.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/jose/Desktop/video streaming working/src/client/c_callback_parent.c" -o CMakeFiles/client.dir/src/client/c_callback_parent.c.s
+
+CMakeFiles/client.dir/src/client/c_callback_parent.c.o.requires:
+
+.PHONY : CMakeFiles/client.dir/src/client/c_callback_parent.c.o.requires
+
+CMakeFiles/client.dir/src/client/c_callback_parent.c.o.provides: CMakeFiles/client.dir/src/client/c_callback_parent.c.o.requires
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_callback_parent.c.o.provides.build
+.PHONY : CMakeFiles/client.dir/src/client/c_callback_parent.c.o.provides
+
+CMakeFiles/client.dir/src/client/c_callback_parent.c.o.provides.build: CMakeFiles/client.dir/src/client/c_callback_parent.c.o
 
 
 # Object files for target client
 client_OBJECTS = \
-"CMakeFiles/client.dir/src/client/client.cpp.o"
+"CMakeFiles/client.dir/src/client/c_main.c.o" \
+"CMakeFiles/client.dir/src/client/c_child.c.o" \
+"CMakeFiles/client.dir/src/client/c_parent.c.o" \
+"CMakeFiles/client.dir/src/client/c_common.c.o" \
+"CMakeFiles/client.dir/src/client/c_callback_parent.c.o"
 
 # External object files for target client
 client_EXTERNAL_OBJECTS =
 
-client: CMakeFiles/client.dir/src/client/client.cpp.o
+client: CMakeFiles/client.dir/src/client/c_main.c.o
+client: CMakeFiles/client.dir/src/client/c_child.c.o
+client: CMakeFiles/client.dir/src/client/c_parent.c.o
+client: CMakeFiles/client.dir/src/client/c_common.c.o
+client: CMakeFiles/client.dir/src/client/c_callback_parent.c.o
 client: CMakeFiles/client.dir/build.make
 client: /usr/local/lib/libopencv_stitching.so.3.3.1
 client: /usr/local/lib/libopencv_superres.so.3.3.1
@@ -135,7 +239,7 @@ client: /usr/local/lib/libopencv_objdetect.so.3.3.1
 client: /usr/local/lib/libopencv_imgproc.so.3.3.1
 client: /usr/local/lib/libopencv_core.so.3.3.1
 client: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,7 +247,11 @@ CMakeFiles/client.dir/build: client
 
 .PHONY : CMakeFiles/client.dir/build
 
-CMakeFiles/client.dir/requires: CMakeFiles/client.dir/src/client/client.cpp.o.requires
+CMakeFiles/client.dir/requires: CMakeFiles/client.dir/src/client/c_main.c.o.requires
+CMakeFiles/client.dir/requires: CMakeFiles/client.dir/src/client/c_child.c.o.requires
+CMakeFiles/client.dir/requires: CMakeFiles/client.dir/src/client/c_parent.c.o.requires
+CMakeFiles/client.dir/requires: CMakeFiles/client.dir/src/client/c_common.c.o.requires
+CMakeFiles/client.dir/requires: CMakeFiles/client.dir/src/client/c_callback_parent.c.o.requires
 
 .PHONY : CMakeFiles/client.dir/requires
 

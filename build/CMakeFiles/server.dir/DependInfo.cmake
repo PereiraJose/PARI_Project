@@ -1,17 +1,39 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
+  "C"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jose/Desktop/video streaming working/src/server/server.cpp" "/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir/src/server/server.cpp.o"
+set(CMAKE_DEPENDS_CHECK_C
+  "/home/jose/Desktop/video streaming working/src/server/s_child.c" "/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir/src/server/s_child.c.o"
+  "/home/jose/Desktop/video streaming working/src/server/s_common.c" "/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir/src/server/s_common.c.o"
+  "/home/jose/Desktop/video streaming working/src/server/s_main.c" "/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir/src/server/s_main.c.o"
+  "/home/jose/Desktop/video streaming working/src/server/s_parent.c" "/home/jose/Desktop/video streaming working/build/CMakeFiles/server.dir/src/server/s_parent.c.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include"
   "/usr/local/include/opencv"
+  "/usr/include/gtk-3.0"
+  "/usr/include/at-spi2-atk/2.0"
+  "/usr/include/at-spi-2.0"
+  "/usr/include/dbus-1.0"
+  "/usr/lib/x86_64-linux-gnu/dbus-1.0/include"
+  "/usr/include/gio-unix-2.0"
+  "/usr/include/mirclient"
+  "/usr/include/mircore"
+  "/usr/include/mircookie"
+  "/usr/include/cairo"
+  "/usr/include/pango-1.0"
+  "/usr/include/harfbuzz"
+  "/usr/include/atk-1.0"
+  "/usr/include/pixman-1"
+  "/usr/include/freetype2"
+  "/usr/include/libpng12"
+  "/usr/include/gdk-pixbuf-2.0"
+  "/usr/include/glib-2.0"
+  "/usr/lib/x86_64-linux-gnu/glib-2.0/include"
   )
 
 # Targets to which this target links.

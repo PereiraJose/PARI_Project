@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = "/home/jose/Desktop/video streaming working/build"
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named client
+
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+#=============================================================================
 # Target rules for targets named server
 
 # Build rule for target.
@@ -124,71 +137,273 @@ server/fast:
 .PHONY : server/fast
 
 #=============================================================================
-# Target rules for targets named client
+# Target rules for targets named cpfiles
 
 # Build rule for target.
-client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 client
-.PHONY : client
+cpfiles: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cpfiles
+.PHONY : cpfiles
 
 # fast build rule for target.
-client/fast:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-.PHONY : client/fast
+cpfiles/fast:
+	$(MAKE) -f CMakeFiles/cpfiles.dir/build.make CMakeFiles/cpfiles.dir/build
+.PHONY : cpfiles/fast
 
-src/client/client.o: src/client/client.cpp.o
+#=============================================================================
+# Target rules for targets named doc
 
-.PHONY : src/client/client.o
+# Build rule for target.
+doc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doc
+.PHONY : doc
 
-# target to build an object file
-src/client/client.cpp.o:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/client.cpp.o
-.PHONY : src/client/client.cpp.o
+# fast build rule for target.
+doc/fast:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+.PHONY : doc/fast
 
-src/client/client.i: src/client/client.cpp.i
+src/client/c_callback_parent.o: src/client/c_callback_parent.c.o
 
-.PHONY : src/client/client.i
-
-# target to preprocess a source file
-src/client/client.cpp.i:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/client.cpp.i
-.PHONY : src/client/client.cpp.i
-
-src/client/client.s: src/client/client.cpp.s
-
-.PHONY : src/client/client.s
-
-# target to generate assembly for a file
-src/client/client.cpp.s:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/client.cpp.s
-.PHONY : src/client/client.cpp.s
-
-src/server/server.o: src/server/server.cpp.o
-
-.PHONY : src/server/server.o
+.PHONY : src/client/c_callback_parent.o
 
 # target to build an object file
-src/server/server.cpp.o:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/server.cpp.o
-.PHONY : src/server/server.cpp.o
+src/client/c_callback_parent.c.o:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_callback_parent.c.o
+.PHONY : src/client/c_callback_parent.c.o
 
-src/server/server.i: src/server/server.cpp.i
+src/client/c_callback_parent.i: src/client/c_callback_parent.c.i
 
-.PHONY : src/server/server.i
+.PHONY : src/client/c_callback_parent.i
 
 # target to preprocess a source file
-src/server/server.cpp.i:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/server.cpp.i
-.PHONY : src/server/server.cpp.i
+src/client/c_callback_parent.c.i:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_callback_parent.c.i
+.PHONY : src/client/c_callback_parent.c.i
 
-src/server/server.s: src/server/server.cpp.s
+src/client/c_callback_parent.s: src/client/c_callback_parent.c.s
 
-.PHONY : src/server/server.s
+.PHONY : src/client/c_callback_parent.s
 
 # target to generate assembly for a file
-src/server/server.cpp.s:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/server.cpp.s
-.PHONY : src/server/server.cpp.s
+src/client/c_callback_parent.c.s:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_callback_parent.c.s
+.PHONY : src/client/c_callback_parent.c.s
+
+src/client/c_child.o: src/client/c_child.c.o
+
+.PHONY : src/client/c_child.o
+
+# target to build an object file
+src/client/c_child.c.o:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_child.c.o
+.PHONY : src/client/c_child.c.o
+
+src/client/c_child.i: src/client/c_child.c.i
+
+.PHONY : src/client/c_child.i
+
+# target to preprocess a source file
+src/client/c_child.c.i:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_child.c.i
+.PHONY : src/client/c_child.c.i
+
+src/client/c_child.s: src/client/c_child.c.s
+
+.PHONY : src/client/c_child.s
+
+# target to generate assembly for a file
+src/client/c_child.c.s:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_child.c.s
+.PHONY : src/client/c_child.c.s
+
+src/client/c_common.o: src/client/c_common.c.o
+
+.PHONY : src/client/c_common.o
+
+# target to build an object file
+src/client/c_common.c.o:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_common.c.o
+.PHONY : src/client/c_common.c.o
+
+src/client/c_common.i: src/client/c_common.c.i
+
+.PHONY : src/client/c_common.i
+
+# target to preprocess a source file
+src/client/c_common.c.i:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_common.c.i
+.PHONY : src/client/c_common.c.i
+
+src/client/c_common.s: src/client/c_common.c.s
+
+.PHONY : src/client/c_common.s
+
+# target to generate assembly for a file
+src/client/c_common.c.s:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_common.c.s
+.PHONY : src/client/c_common.c.s
+
+src/client/c_main.o: src/client/c_main.c.o
+
+.PHONY : src/client/c_main.o
+
+# target to build an object file
+src/client/c_main.c.o:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_main.c.o
+.PHONY : src/client/c_main.c.o
+
+src/client/c_main.i: src/client/c_main.c.i
+
+.PHONY : src/client/c_main.i
+
+# target to preprocess a source file
+src/client/c_main.c.i:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_main.c.i
+.PHONY : src/client/c_main.c.i
+
+src/client/c_main.s: src/client/c_main.c.s
+
+.PHONY : src/client/c_main.s
+
+# target to generate assembly for a file
+src/client/c_main.c.s:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_main.c.s
+.PHONY : src/client/c_main.c.s
+
+src/client/c_parent.o: src/client/c_parent.c.o
+
+.PHONY : src/client/c_parent.o
+
+# target to build an object file
+src/client/c_parent.c.o:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_parent.c.o
+.PHONY : src/client/c_parent.c.o
+
+src/client/c_parent.i: src/client/c_parent.c.i
+
+.PHONY : src/client/c_parent.i
+
+# target to preprocess a source file
+src/client/c_parent.c.i:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_parent.c.i
+.PHONY : src/client/c_parent.c.i
+
+src/client/c_parent.s: src/client/c_parent.c.s
+
+.PHONY : src/client/c_parent.s
+
+# target to generate assembly for a file
+src/client/c_parent.c.s:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/c_parent.c.s
+.PHONY : src/client/c_parent.c.s
+
+src/server/s_child.o: src/server/s_child.c.o
+
+.PHONY : src/server/s_child.o
+
+# target to build an object file
+src/server/s_child.c.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_child.c.o
+.PHONY : src/server/s_child.c.o
+
+src/server/s_child.i: src/server/s_child.c.i
+
+.PHONY : src/server/s_child.i
+
+# target to preprocess a source file
+src/server/s_child.c.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_child.c.i
+.PHONY : src/server/s_child.c.i
+
+src/server/s_child.s: src/server/s_child.c.s
+
+.PHONY : src/server/s_child.s
+
+# target to generate assembly for a file
+src/server/s_child.c.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_child.c.s
+.PHONY : src/server/s_child.c.s
+
+src/server/s_common.o: src/server/s_common.c.o
+
+.PHONY : src/server/s_common.o
+
+# target to build an object file
+src/server/s_common.c.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_common.c.o
+.PHONY : src/server/s_common.c.o
+
+src/server/s_common.i: src/server/s_common.c.i
+
+.PHONY : src/server/s_common.i
+
+# target to preprocess a source file
+src/server/s_common.c.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_common.c.i
+.PHONY : src/server/s_common.c.i
+
+src/server/s_common.s: src/server/s_common.c.s
+
+.PHONY : src/server/s_common.s
+
+# target to generate assembly for a file
+src/server/s_common.c.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_common.c.s
+.PHONY : src/server/s_common.c.s
+
+src/server/s_main.o: src/server/s_main.c.o
+
+.PHONY : src/server/s_main.o
+
+# target to build an object file
+src/server/s_main.c.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_main.c.o
+.PHONY : src/server/s_main.c.o
+
+src/server/s_main.i: src/server/s_main.c.i
+
+.PHONY : src/server/s_main.i
+
+# target to preprocess a source file
+src/server/s_main.c.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_main.c.i
+.PHONY : src/server/s_main.c.i
+
+src/server/s_main.s: src/server/s_main.c.s
+
+.PHONY : src/server/s_main.s
+
+# target to generate assembly for a file
+src/server/s_main.c.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_main.c.s
+.PHONY : src/server/s_main.c.s
+
+src/server/s_parent.o: src/server/s_parent.c.o
+
+.PHONY : src/server/s_parent.o
+
+# target to build an object file
+src/server/s_parent.c.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_parent.c.o
+.PHONY : src/server/s_parent.c.o
+
+src/server/s_parent.i: src/server/s_parent.c.i
+
+.PHONY : src/server/s_parent.i
+
+# target to preprocess a source file
+src/server/s_parent.c.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_parent.c.i
+.PHONY : src/server/s_parent.c.i
+
+src/server/s_parent.s: src/server/s_parent.c.s
+
+.PHONY : src/server/s_parent.s
+
+# target to generate assembly for a file
+src/server/s_parent.c.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/s_parent.c.s
+.PHONY : src/server/s_parent.c.s
 
 # Help Target
 help:
@@ -196,16 +411,39 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... server"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
 	@echo "... client"
-	@echo "... src/client/client.o"
-	@echo "... src/client/client.i"
-	@echo "... src/client/client.s"
-	@echo "... src/server/server.o"
-	@echo "... src/server/server.i"
-	@echo "... src/server/server.s"
+	@echo "... server"
+	@echo "... cpfiles"
+	@echo "... doc"
+	@echo "... src/client/c_callback_parent.o"
+	@echo "... src/client/c_callback_parent.i"
+	@echo "... src/client/c_callback_parent.s"
+	@echo "... src/client/c_child.o"
+	@echo "... src/client/c_child.i"
+	@echo "... src/client/c_child.s"
+	@echo "... src/client/c_common.o"
+	@echo "... src/client/c_common.i"
+	@echo "... src/client/c_common.s"
+	@echo "... src/client/c_main.o"
+	@echo "... src/client/c_main.i"
+	@echo "... src/client/c_main.s"
+	@echo "... src/client/c_parent.o"
+	@echo "... src/client/c_parent.i"
+	@echo "... src/client/c_parent.s"
+	@echo "... src/server/s_child.o"
+	@echo "... src/server/s_child.i"
+	@echo "... src/server/s_child.s"
+	@echo "... src/server/s_common.o"
+	@echo "... src/server/s_common.i"
+	@echo "... src/server/s_common.s"
+	@echo "... src/server/s_main.o"
+	@echo "... src/server/s_main.i"
+	@echo "... src/server/s_main.s"
+	@echo "... src/server/s_parent.o"
+	@echo "... src/server/s_parent.i"
+	@echo "... src/server/s_parent.s"
 .PHONY : help
 
 

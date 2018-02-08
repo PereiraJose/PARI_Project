@@ -1,0 +1,29 @@
+/** @mainpage Projeto final de PARI
+ *
+ * @section MRS
+ * 
+ *
+ * Mobile Remote Surveillance
+ *
+ * @author  José Pereira
+ * @section Objetivos
+
+\verbatim
+        1-Parametros de  é receção de imagens de uma Câmara
+        2-Parametros de controlo é a posição da base do carro telecomandado
+        
+\endverbatim
+
+@section Client
+
+Utilizador recebe imagem de uma câmara que é mostra pelo GTK, esta está posicionada em cima de uma base de um carro telecomandado. O utilizador consegue controlar o movimento deste pelas setas direcionais do teclado.
+
+@section Servidor
+
+Após estabelecida a comunicação com o utilizador o servidor envia periodicamente imagens da câmara, e efetua as ordens de controlo dadas pelo utilizador.
+
+@section Trabalho futuro
+
+Adicionar controlo dos servo-motores
+
+*/

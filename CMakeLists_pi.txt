@@ -1,0 +1,21 @@
+cmake_minimum_required (VERSION 2.8)
+project ("Mobile Remote Surveillance")
+
+set(PROG2 server)
+
+
+file(GLOB SOURCES2 "src/server/*.c")
+
+
+add_executable(${PROG2} ${SOURCES2})
+
+
+find_package(OpenCV 3 REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+
+find_library(wiringPi_LIB wiringPi)
+
+
+target_link_libraries(${PROG2} m ${OpenCV_LIBS} ${wiringPi_LIB} -lpthread)
+

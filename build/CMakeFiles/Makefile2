@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = "/home/jose/Desktop/video streaming working"
 CMAKE_BINARY_DIR = "/home/jose/Desktop/video streaming working/build"
 
 #=============================================================================
+# Target rules for target CMakeFiles/client.dir
+
+# All Build rule for target.
+CMakeFiles/client.dir/all: CMakeFiles/cpfiles.dir/all
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target client"
+.PHONY : CMakeFiles/client.dir/all
+
+# Include target in all.
+all: CMakeFiles/client.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 0
+.PHONY : CMakeFiles/client.dir/rule
+
+# Convenience name for target.
+client: CMakeFiles/client.dir/rule
+
+.PHONY : client
+
+# clean rule for target.
+CMakeFiles/client.dir/clean:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/clean
+.PHONY : CMakeFiles/client.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/client.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/server.dir
 
 # All Build rule for target.
 CMakeFiles/server.dir/all:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=3,4 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=8,9,10,11,12 "Built target server"
 .PHONY : CMakeFiles/server.dir/all
 
 # Include target in all.
@@ -76,7 +113,7 @@ all: CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 0
 .PHONY : CMakeFiles/server.dir/rule
@@ -97,39 +134,66 @@ clean: CMakeFiles/server.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/client.dir
+# Target rules for target CMakeFiles/cpfiles.dir
 
 # All Build rule for target.
-CMakeFiles/client.dir/all:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=1,2 "Built target client"
-.PHONY : CMakeFiles/client.dir/all
-
-# Include target in all.
-all: CMakeFiles/client.dir/all
-
-.PHONY : all
+CMakeFiles/cpfiles.dir/all:
+	$(MAKE) -f CMakeFiles/cpfiles.dir/build.make CMakeFiles/cpfiles.dir/depend
+	$(MAKE) -f CMakeFiles/cpfiles.dir/build.make CMakeFiles/cpfiles.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num= "Built target cpfiles"
+.PHONY : CMakeFiles/cpfiles.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
+CMakeFiles/cpfiles.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 0
-.PHONY : CMakeFiles/client.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cpfiles.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 0
+.PHONY : CMakeFiles/cpfiles.dir/rule
 
 # Convenience name for target.
-client: CMakeFiles/client.dir/rule
+cpfiles: CMakeFiles/cpfiles.dir/rule
 
-.PHONY : client
-
-# clean rule for target.
-CMakeFiles/client.dir/clean:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/clean
-.PHONY : CMakeFiles/client.dir/clean
+.PHONY : cpfiles
 
 # clean rule for target.
-clean: CMakeFiles/client.dir/clean
+CMakeFiles/cpfiles.dir/clean:
+	$(MAKE) -f CMakeFiles/cpfiles.dir/build.make CMakeFiles/cpfiles.dir/clean
+.PHONY : CMakeFiles/cpfiles.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/cpfiles.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/doc.dir
+
+# All Build rule for target.
+CMakeFiles/doc.dir/all:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/depend
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/jose/Desktop/video streaming working/build/CMakeFiles" --progress-num=7 "Built target doc"
+.PHONY : CMakeFiles/doc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/doc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/doc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/jose/Desktop/video streaming working/build/CMakeFiles" 0
+.PHONY : CMakeFiles/doc.dir/rule
+
+# Convenience name for target.
+doc: CMakeFiles/doc.dir/rule
+
+.PHONY : doc
+
+# clean rule for target.
+CMakeFiles/doc.dir/clean:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/clean
+.PHONY : CMakeFiles/doc.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/doc.dir/clean
 
 .PHONY : clean
 
