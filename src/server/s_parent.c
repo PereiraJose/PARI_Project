@@ -19,6 +19,9 @@
 
 #ifdef OrangePI
 // https://github.com/zhaolei/WiringOP
+#include<wiringPi.h>
+#include<softServo.h>
+
 
 #define FORWARD 0
 #define REVERSE 7
@@ -252,8 +255,8 @@ void RespondAlarm(int signum){
 	        direction = 's';
 	        update=200;
 		}
-		 else{
-		update++;
+		else
+			update++;
 	}
 	
 	if (servo1)
