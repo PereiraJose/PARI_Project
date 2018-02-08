@@ -15,7 +15,7 @@
  */
 
 //uncomment next line to work in OrangePI
-#define OrangePI
+//#define OrangePI
 
 
 // #define IMAGE_WIDTH  320
