@@ -51,6 +51,10 @@ int parent(int cpid, int argc, char *argv[]){
 		return 1 ;
 	}
 	softServoSetup (1, 1, 2, 3, 1, 1, 1, 1) ;
+	pinMode(FORWARD, OUTPUT);
+	pinMode(REVERSE, OUTPUT);
+	pinMode(LEFT, OUTPUT);
+	pinMode(RIGHT, OUTPUT);
 #endif
 
 
@@ -255,9 +259,10 @@ void RespondAlarm(int signum){
 	        direction = 's';
 	        update=200;
 		}
-		else
-			update++;
 	}
+	else
+		update++;
+	
 	
 	if (servo1)
 		softServoWrite (2, servo1*1400/180+800);

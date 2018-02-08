@@ -53,8 +53,8 @@
 	char direction = 's'; // l - left r - right
 	int add_servo1 = 0;
 	int add_servo2 = 0;
-	int servo1 = 0;
-	int servo2 = 0;
+	int servo1 = 90;
+	int servo2 = 90;
 	
 	int infinite_loopG = 1;
 	

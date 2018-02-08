@@ -97,10 +97,10 @@ int parent(int cpid, int argc, char *argv[]){
 
 	
 	
-	// assossiate callback to send control to server every x seconds
+	// assossiate callback to send control to server every 100 miliseconds
 	int *ptr_socket;
 	ptr_socket = &socket_desc;
-	g_timeout_add(50, (GSourceFunc) send_info, (gpointer) ptr_socket);
+	g_timeout_add(100, (GSourceFunc) send_info, (gpointer) ptr_socket);
 	
 	
 	// keyboard input
