@@ -19,9 +19,14 @@
 
 #ifdef OrangePI
 // https://github.com/zhaolei/WiringOP
+<<<<<<< HEAD
 #include<wiringPi.h>
 #include<softServo.h>
 
+=======
+#include <wiringPi.h>
+#include <softServo.h>
+>>>>>>> 48a761b5657237a8cf860a81315ff10de80f6f3e
 
 #define FORWARD 0
 #define REVERSE 7
