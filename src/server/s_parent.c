@@ -2,7 +2,7 @@
  *       @file  s_parent.c
  *      @brief  Breve Descrição
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
+ * Comunicação TCP/IP com o cliente, 
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -19,14 +19,9 @@
 
 #ifdef OrangePI
 // https://github.com/zhaolei/WiringOP
-<<<<<<< HEAD
+
 #include<wiringPi.h>
 #include<softServo.h>
-
-=======
-#include <wiringPi.h>
-#include <softServo.h>
->>>>>>> 48a761b5657237a8cf860a81315ff10de80f6f3e
 
 #define FORWARD 0
 #define REVERSE 7
@@ -44,16 +39,19 @@ int update = 0;
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Inicializações 
+ comunicação dos parâmetros de controlo com o client
+ * @param  int cpid - id do processo filho
+ * @param  int argc - numero de parâmetros introduzidos na linha de comandos
+ * @param  char *argv[] - array com os parâmetros introduzidos na linha de comandos
+ * @return none
  */
-int parent(int cpid, int argc, char *argv[]){
+void parent(int cpid, int argc, char *argv[]){
 
 #ifdef OrangePI
 	if (wiringPiSetup () == -1){
 		fprintf (stdout, "oops: %s\n", strerror (errno)) ;
-		return 1 ;
+		return ;
 	}
 	softServoSetup (1, 1, 2, 3, 1, 1, 1, 1) ;
 	pinMode(FORWARD, OUTPUT);
@@ -61,8 +59,6 @@ int parent(int cpid, int argc, char *argv[]){
 	pinMode(LEFT, OUTPUT);
 	pinMode(RIGHT, OUTPUT);
 #endif
-
-
 
 
 	int r=InitTimer( RespondAlarm );  //Prepare timer and set RespondAlarm as the callback to be executed

@@ -1,29 +1,65 @@
-/** @mainpage Projeto final de PARI
- *
- * @section MRS
- * 
- *
- * Mobile Remote Surveillance
- *
- * @author  José Pereira
- * @section Objetivos
+/** @mainpage Mobile Remote Surveillance
 
+ * @author  José Pereira - Jose.paulo@ua.pt
+
+ 
+@section a Descrição
+
+Utilizador recebe imagem de uma câmara enviada pelo sistema remoto por TCP/IP, e esta é mostrada pelo GTK. <br>
+A Câmara está posicionada em cima de uma base de um carro telecomandado. <br>
+O utilizador consegue controlar o movimento deste pelas setas direcionais do teclado. <br>
+
+@section b Cliente
+Correr pela janela de comandos 
+client <serverIP> <serverPort>
+
+Divisão do programa em 2 processos
+
+Processo filho
 \verbatim
-        1-Parametros de  é receção de imagens de uma Câmara
-        2-Parametros de controlo é a posição da base do carro telecomandado
-        
+	1-Configuração da comunicação para aquisição imagem por TCP/IP
+	1-Receção Imagem
+	2-Escrita na shared memory
+	3-Sinal a indicar nova imagem
+\endverbatim
+Processo pai
+\verbatim
+	1-Configuração da comunicação para controlo por TCP/IP
+	2-Interface gráfica
+	3-Processamento de eventos do utilizador (teclado)
+	4-Callback de sinal de nova imagem processamento e display
+	5-Evento de timeout para enviar mensagens de controlo
 \endverbatim
 
-@section Client
 
-Utilizador recebe imagem de uma câmara que é mostra pelo GTK, esta está posicionada em cima de uma base de um carro telecomandado. O utilizador consegue controlar o movimento deste pelas setas direcionais do teclado.
+@section c Servidor
+Correr pela janela de comandos 
+server <serverPort>
 
-@section Servidor
+Divisão do programa em 2 processos
 
-Após estabelecida a comunicação com o utilizador o servidor envia periodicamente imagens da câmara, e efetua as ordens de controlo dadas pelo utilizador.
+Processo filho
+\verbatim
+	1-Configuração de receção comunicação para imagem por TCP/IP
+	1-Acesso a câmara e aquisião de nova imagem
+	2-Envio da imagem
+\endverbatim
+Processo pai
+\verbatim
+	1-Configuração de receção comunicação para controlo por TCP/IP
+	2-Timer que ativa as saídas e verifica se não existir comunicação desliga as saídas
+\endverbatim
 
-@section Trabalho futuro
+@section d Github
 
-Adicionar controlo dos servo-motores
+Código disponível em: <br>
+https://github.com/PereiraJose/PARI_Project
+
+@section e Trabalho futuro
+
+Adicionar arduino para controlo dos servo-motores
+
+@section f Aspetos a melhorar
+Interface gráfica ocasionalmento bloqueia, em certas situação o GTK continua a enviar mensagens de controlo. Como o servidor continua a receber informação as saídas continuam ativas. Nestas situações o processo filho do cliente continua ativo após forçar paragem do processo pai.
 
 */

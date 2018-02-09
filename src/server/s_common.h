@@ -1,8 +1,7 @@
 /**
  *       @file  s_common.h
- *      @brief  Breve Descrição
+ *      @brief  Ficheiro com includes e funções comums aos vários ficheiros, declaração das variáveis globais
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *

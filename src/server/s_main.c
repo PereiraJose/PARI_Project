@@ -1,8 +1,9 @@
 /**
  *       @file  s_main.c
- *      @brief  Breve Descrição
+ *      @brief  Ficheiro principal do programa do servidor remoto
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
+ * Verifica quantidade de argumentos se é a correta
+ * Print de mensagem informativa de como usar
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -31,6 +32,21 @@
  * @return 
  */
 int main(int argc, char *argv[]){
+	
+	//http://www.network-science.de/ascii/
+	printf("___  _________  _____  \n");
+	printf("|  \\/  || ___ \\/  ___| \n");
+	printf("| .  . || |_/ /\\ `--.  \n");
+	printf("| |\\/| ||    /  `--. \\ \n");
+	printf("| |  | || |\\ \\ /\\__/ / \n");
+	printf("\\_|  |_/\\_| \\_|\\____/  \n\n");
+	
+	if (argc < 2) {
+        printf("Usage: client <serverPort>\n");
+    	return 0;
+    }
+
+
 	int pid = fork();
 	
     if(pid == -1) { printf("Could not fork(). Exiting\n"); return -1; }

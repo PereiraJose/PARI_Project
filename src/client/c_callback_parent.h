@@ -1,8 +1,7 @@
 /**
  *       @file  c_callback_parent.h
- *      @brief  Breve Descrição
+ *      @brief  Declaração das funções de callback do cliente
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -29,7 +28,7 @@ gboolean pari_delete_event(GtkWidget * window, GdkEvent * event, gpointer data);
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
 gboolean on_key_release (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
 
-int send_info(int *socket_desc, int a);
+void send_info(int *socket_desc);
 void ParentUSR1handler(int signum);
 
 #endif /* __C_CALLBACK_PARENT_H__ */

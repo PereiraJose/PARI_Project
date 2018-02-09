@@ -1,8 +1,9 @@
 /**
  *       @file  c_common.c
- *      @brief  Breve Descrição
+ *      @brief  Funções comums aos vários ficheiros de código
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
+ * Acesso à shared memory
+ * Função do openCV round() - fix
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -39,3 +40,11 @@ int GetSharedMem(void){
 
     return shm_id;
 }
+
+/**
+ * @brief  Fix problem opencv 3 and c
+ // https://stackoverflow.com/questions/42918747/yolo-c-compilation-failure-with-debug-1 
+ * @param  double value
+ * @return int value	retorna valor arredondado para cima
+ */
+int cvRound(double value) {return(ceil(value));}

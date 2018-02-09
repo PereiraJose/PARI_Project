@@ -1,8 +1,12 @@
 /**
  *       @file  c_callback_parent.c
- *      @brief  Breve Descrição
+ *      @brief  Processamento de callback
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
+ * Processa o fecho da interface gráfica
+ * Processamento de teclas precionadas
+ * Processamento de teclas libertadas
+ * Processamento do sinal de nova imagem
+ * Envio de mensagem de controlo
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -39,9 +43,14 @@ gboolean pari_delete_event(GtkWidget * window, GdkEvent * event, gpointer data){
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief	Callback de key key_press
+ 	Processa imput do utilizador, actualiza variáveis
+ 	srvo1, servo2
+ 	move, direction
+ * @param	GtkWidget *widget
+ * @param	GdkEventKey *event
+ * @param	gpointer user_data
+ * @return	gboolean
  */
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data){
 
@@ -95,9 +104,14 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief	Callback de key release
+	Processa imput do utilizador, actualiza variáveis
+ 	srvo1, servo2
+ 	move, direction
+ * @param	GtkWidget *widget
+ * @param	GdkEventKey *event
+ * @param	gpointer user_data
+ * @return	gboolean
  */
 gboolean on_key_release (GtkWidget *widget, GdkEventKey *event, gpointer user_data){
 	switch (event->keyval){
@@ -138,18 +152,12 @@ gboolean on_key_release (GtkWidget *widget, GdkEventKey *event, gpointer user_da
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Callback de receção de nova imagem
+ * @param  int signum
+ * @return none
  */
 void ParentUSR1handler(int signum){
-	//printf("LOAD IMAGE\n");
-	//fflush(stdout);
-
-    //printf("Another hit received in parent\n");
-    //fflush(stdout);
-    
-    // https://stackoverflow.com/questions/3906437/opencv-matrix-into-shared-memory
+	// https://stackoverflow.com/questions/3906437/opencv-matrix-into-shared-memory
     char *data; //generic pointer to serve as link for the shared memory
     int shm_id;
 
@@ -169,7 +177,6 @@ void ParentUSR1handler(int signum){
     // http://opencv-users.1802565.n2.nabble.com/Convert-cvMat-to-IplImage-td7472881.html
     cvGetImage( s, image );
     
-    IplImage *img = cvCreateImage( cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), IPL_DEPTH_8U, 3);
     cvCopy(image, img, 0);
     
     // cvShowImage("Parent image", img);
@@ -185,19 +192,14 @@ void ParentUSR1handler(int signum){
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Callback por timeout - Envio da mensagem de controlo para o sistema remoto
+ * @param  int *socket_desc - socket do cliente remoto
+ * @return none
  */
-int send_info(int *socket_desc, int a){
-	
-	char message[16];
+void send_info(int *socket_desc){
+	char message[32];
 	sprintf(message, "control%c%c%.3d%.3d", move, direction, servo1, servo2);
     int ret = send(*socket_desc, message, strlen(message) , 0);
-    if( ret < 0) { puts("Send failed"); return 0; }
-    
-	//printf("Sent %d\n", *socket_desc);
-	//fflush(stdout);
-	return 1;
+    if( ret < 0) { puts("Send failed"); }
 }
 

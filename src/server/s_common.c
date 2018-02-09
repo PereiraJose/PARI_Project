@@ -1,8 +1,7 @@
 /**
  *       @file  s_common.c
- *      @brief  Breve Descrição
+ *      @brief  Funções comums aos vários ficheiros de código
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -17,9 +16,9 @@
 #include "s_common.h"
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Print na consola da mensagem de erro e termina programa
+ * @param  const char *msg - mensagem de erro
+ * @return none
  */
 void myerror(const char *msg){
 	perror(msg);
@@ -28,9 +27,9 @@ void myerror(const char *msg){
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Callback que interpreta CTRL-C para terminar o servidor e fechar os sockets
+ * @param  int dummy
+ * @return none
  */
 void ManageCTRL_C(int dummy){
 	printf("User CTRL-C pressed. Closing server.\n");

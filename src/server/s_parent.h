@@ -1,8 +1,7 @@
 /**
  *       @file  s_parent.h
- *      @brief  Breve Descrição
+ *      @brief  Declaração das funções de funções usadas no processo pai
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -20,7 +19,7 @@
 
 #include "s_common.h"
 
-int parent(int cpid, int argc, char *argv[]);
+void parent(int cpid, int argc, char *argv[]);
 void processclient(int sock, char *clientID);
 void RespondAlarm(int signum);
 int InitTimer( void (* func)(int) );

@@ -1,8 +1,7 @@
 /**
  *       @file  c_parent.c
- *      @brief  Breve Descrição
+ *      @brief  Interface gráfica
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -20,9 +19,16 @@
 #include "c_parent.h"
 
 
-
-int parent(int cpid, int argc, char *argv[]){
-	
+/**
+ * @brief  Inicializações
+ Comunicação de controlo com o servidor remoto
+ Inicialização da interface gráfica
+ * @param  int cpid - id do processo filho
+ * @param  int argc - numero de parâmetros introduzidos na linha de comandos
+ * @param  char *argv[] - array com os parâmetros introduzidos na linha de comandos
+ * @return none
+ */
+void parent(int cpid, int argc, char *argv[]){
 	signal(SIGUSR1, ParentUSR1handler);
 	usleep(100000); //Must give time to operating system to register signal, otherwise process exits prematurely if it receives it earlier
 	
@@ -53,7 +59,7 @@ int parent(int cpid, int argc, char *argv[]){
     
     if (argc < 3) {
     	printf("Usage: client <serverIP> <serverPort>");
-    	return(0);
+    	return;
     }
     
     char *ip = argv[1];
@@ -71,7 +77,7 @@ int parent(int cpid, int argc, char *argv[]){
 	
     //Connect to remote server using the created socket
     ret = connect(socket_desc, (struct sockaddr *)&server, sizeof(server));
-    if (ret < 0) { puts("connect error"); return 1; }
+    if (ret < 0) { puts("connect error"); return; }
 
     puts("Connected to server");
 	
@@ -95,12 +101,12 @@ int parent(int cpid, int argc, char *argv[]){
 	}
 
 
+	img = cvCreateImage( cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), IPL_DEPTH_8U, 3);
 	
-	
-	// assossiate callback to send control to server every 100 miliseconds
+	// assossiate callback to send control to server every 50 miliseconds
 	int *ptr_socket;
 	ptr_socket = &socket_desc;
-	g_timeout_add(100, (GSourceFunc) send_info, (gpointer) ptr_socket);
+	g_timeout_add(50, (GSourceFunc) send_info, (gpointer) ptr_socket);
 	
 	
 	// keyboard input
@@ -120,7 +126,7 @@ int parent(int cpid, int argc, char *argv[]){
 	char message[16];
 	sprintf(message, "quit");
     ret = send(socket_desc, message, strlen(message) , 0);
-    if( ret < 0) { puts("Send failed"); return 0; }
+    if( ret < 0) { puts("Send failed");}
 	
 	
 	//Allow elimination of shared memory
@@ -129,18 +135,17 @@ int parent(int cpid, int argc, char *argv[]){
 	//close the socket before exiting
     close(socket_desc);
 	
-	return 0;
+	return;
 }
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Exemplo de código de uma função que converte uma IplImage num pixbuf para inserir numa interface GTK e ajusta-a com certas dimensões passadas como argumentos
+ * @param  IplImage * image - Imagem
+ * @param  int dst_w - largura janela de destino
+ * @param  int dst_h - altura janela de destino
+ * @return GdkPixbuf *
  */
-// Exemplo de código de uma função que converte
-// uma IplImage num pixbuf para inserir numa interface GTK
-// e ajusta-a com certas dimensões passadas como argumentos
 GdkPixbuf *pari_ConvertOpenCv2Gtk(IplImage * image, int dst_w, int dst_h){
     IplImage *gtkMask=image;
     GdkPixbuf *pix, *rpix;
@@ -159,11 +164,11 @@ GdkPixbuf *pari_ConvertOpenCv2Gtk(IplImage * image, int dst_w, int dst_h){
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  copy from IplImage to pixbuf and paint DA
+ * @param  char * widgetName Nome do widget
+ * @param  IplImage *img Imagem
+ * @return void
  */
-//copy from IplImage to pixbuf and paint DA
 void pari_RefreshDrawingArea( char * widgetName, IplImage *img){
 	GtkWidget *da = GTK_WIDGET(gtk_builder_get_object (builderG, widgetName));
     if( ! da ){

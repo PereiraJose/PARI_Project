@@ -1,8 +1,7 @@
 /**
  *       @file  c_common.h
- *      @brief  Breve Descrição
+ *      @brief  Ficheiro com includes e funções comums aos vários ficheiros, declaração das variáveis globais
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -27,9 +26,10 @@
 #include <sys/shm.h>
 
 // OpenCV
-#include <math.h>
 #include <cv.h>
 #include <highgui.h>
+
+#include <math.h>
 
 // TCPIP
 #include <sys/socket.h> 
@@ -45,10 +45,11 @@
 
 #if defined (_MAIN_C_)
 	GtkBuilder *builderG;
-	IplImage *dst_imageG , *src_imageG;
+	//IplImage *dst_imageG , *src_imageG;
 	
 	CvMat *s = NULL;
 	IplImage* image = NULL;
+	IplImage *img = NULL;
 	char move = 's'; // f - forward b - back
 	char direction = 's'; // l - left r - right
 	int add_servo1 = 0;
@@ -60,10 +61,11 @@
 	
 #else
 	extern GtkBuilder *builderG;
-	extern IplImage *dst_imageG , *src_imageG;
+	//extern IplImage *dst_imageG , *src_imageG;
 	
 	extern CvMat *s;
 	extern IplImage* image;
+	extern IplImage* img;
 	extern char move; // f - forward b - back
 	extern char direction; // l - left r - right
 	

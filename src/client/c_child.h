@@ -1,8 +1,7 @@
 /**
  *       @file  c_child.h
- *      @brief  Breve Descrição
+ *      @brief  Declaração das funções de funções usadas no processo filho
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -19,7 +18,7 @@
 
 #include "c_common.h"
 
-int child(int ppid, int argc, char *argv[]);
+void child(int ppid, int argc, char *argv[]);
 void ChildUSR2handler(int signum);
 #endif /* __C_CHILD_H__ */
  

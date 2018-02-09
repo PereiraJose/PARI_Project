@@ -1,6 +1,9 @@
 /**
  *       @file  c_main.c
- *      @brief  Main aula 9b PARI
+ *      @brief  Ficheiro principal do programa do cliente
+ * 
+ * Verifica quantidade de argumentos se é a correta
+ * Print de mensagem informativa de como usar
  *
  *
  *     @author  José Pereira, jose.paulo@ua.pt
@@ -24,11 +27,28 @@
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Programa divide-se em dois
+ ver child(ppid, argc, argv) e parent(cpid, argc, argv)
+ * @param  int argc - numero de parâmetros introduzidos na linha de comandos
+ * @param  char *argv[] - array com os parâmetros introduzidos na linha de comandos
+ * @return 0
  */
 int main(int argc, char *argv[]){
+
+	//http://www.network-science.de/ascii/
+	printf("___  _________  _____  \n");
+	printf("|  \\/  || ___ \\/  ___| \n");
+	printf("| .  . || |_/ /\\ `--.  \n");
+	printf("| |\\/| ||    /  `--. \\ \n");
+	printf("| |  | || |\\ \\ /\\__/ / \n");
+	printf("\\_|  |_/\\_| \\_|\\____/  \n\n");
+	
+	if (argc < 3) {
+        printf("Usage: client <serverIP> <serverPort>\n");
+    	return 0;
+    }
+
+
 	int pid = fork();
 	
     if(pid == -1) { printf("Could not fork(). Exiting\n"); return -1; }
@@ -44,10 +64,7 @@ int main(int argc, char *argv[]){
     }
     /* The parent */
     else {
-    
-    	
     	printf("\nParent\n");
-    	
     	
     	parent(pid, argc, argv);
 		
@@ -57,13 +74,7 @@ int main(int argc, char *argv[]){
     	fflush(stdout);
     }
 	
-	
-	//cvReleaseImage(&dst_imageG);             //Release image (free pointer when no longer used)
-	//cvReleaseImage(&src_imageG);             //Release image (free pointer when no longer used).
-
-	
 	printf("\nProgram TERMINATED\n");
-
     return 0;
 }
 

@@ -2,7 +2,7 @@
  *       @file  s_child.c
  *      @brief  Breve Descrição
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
+ * Comunicação TCP/IP com o cliente, receção da imagem, escrita na shared memory e sinal para o pai
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -17,18 +17,22 @@
 #include "s_child.h"
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Fix problem opencv 3 and c
+ // https://stackoverflow.com/questions/42918747/yolo-c-compilation-failure-with-debug-1 
+ * @param  double value
+ * @return int value	retorna valor arredondado para cima
  */
 int cvRound(double value) {return(ceil(value));}
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Inicializações
+ comunicação com o cliente, envio de imagem da câmara
+ * @param  int ppid - id do processo pai
+ * @param  int argc - numero de parâmetros introduzidos na linha de comandos
+ * @param  char *argv[] - array com os parâmetros introduzidos na linha de comandos
+ * @return none
  */
-int child(int ppid, int argc, char *argv[]){
+void child(int ppid, int argc, char *argv[]){
     //--------------------------------------------------------
     //networking stuff: socket, bind, listen
     //--------------------------------------------------------
@@ -49,8 +53,6 @@ int child(int ppid, int argc, char *argv[]){
 	signal(SIGINT, ManageCTRL_C);
 
     
-
-	
     if ( (argc > 1) && (strcmp(argv[1],"-h") == 0) ) {
           /*
           std::cerr << "usage: server [port] [capture device]\n" <<
@@ -124,7 +126,7 @@ int child(int ppid, int argc, char *argv[]){
     }/* end of while */
     close(server_Socket);
     
-    return 0;
+    return;
 }
 
 

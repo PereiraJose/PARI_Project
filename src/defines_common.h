@@ -1,8 +1,9 @@
 /**
  *       @file  defines_common.h
- *      @brief  Breve Descrição
+ *      @brief  Defenições comuns aos dois programas
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
+ * Seleção do tamanho da imagem
+ * Escolha para criar código para o OrangePI zero
  *
  *     @author  Jose, jose.paulo@ua.pt
  *

@@ -1,8 +1,7 @@
 /**
  *       @file  s_child.h
- *      @brief  Breve Descrição
+ *      @brief  Declaração das funções de funções usadas no processo filho
  *
- * Descrição mais detalhada do ficheiro que até poderiam incluir links para imagens etc.
  *
  *     @author  Jose, jose.paulo@ua.pt
  *
@@ -26,11 +25,9 @@
 #include <math.h>
 
 #include "s_common.h"
-#include "../defines_common.h"
 
 
-
-int child(int ppid, int argc, char *argv[]);
+void child(int ppid, int argc, char *argv[]);
 void display(int client_Socket);
 
 // https://stackoverflow.com/questions/42918747/yolo-c-compilation-failure-with-debug-1
