@@ -44,11 +44,22 @@ void parent(int cpid, int argc, char *argv[]){
 	cvZero(image);
 	
 	
+	
+	
 	// Shared memory	
 		
 	int shm_id;
 	shm_id = GetSharedMem();
 	if(shm_id == -1) exit(-1);     //failure
+
+	/* attach to the memory segment to get a pointer to it */
+	data_p_img = shmat(shm_id, (void *) 0, 0);
+	if(data_p_img == (char *) (-1)){
+	    perror("shmat");
+	    exit(1);
+	}
+	
+	s->data.ptr = data_p_img;
 	
 	
 	// Connect to server to send control data
@@ -57,17 +68,15 @@ void parent(int cpid, int argc, char *argv[]){
     int ret;
     struct sockaddr_in server;
     
-    if (argc < 3) {
-    	printf("Usage: client <serverIP> <serverPort>");
-    	return;
-    }
     
     char *ip = argv[1];
     int  port =	atoi(argv[2]);
     
+    printf("PORT: %d\n", port);
+    
     //Create a socket for communications
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
-    if (socket_desc == -1) printf("Could not create socket");
+    if (socket_desc == -1) printf("Could not create socket\n");
 
     //fill server details
     server.sin_addr.s_addr = inet_addr(ip);
@@ -77,9 +86,9 @@ void parent(int cpid, int argc, char *argv[]){
 	
     //Connect to remote server using the created socket
     ret = connect(socket_desc, (struct sockaddr *)&server, sizeof(server));
-    if (ret < 0) { puts("connect error"); return; }
+    if (ret < 0) { puts("connect error\n"); return; }
 
-    puts("Connected to server");
+    printf("Parent connected\n");
 	
 	
 	
@@ -128,6 +137,12 @@ void parent(int cpid, int argc, char *argv[]){
     ret = send(socket_desc, message, strlen(message) , 0);
     if( ret < 0) { puts("Send failed");}
 	
+	
+    /* detach from the mem segment since it is leaving */
+	if(  shmdt(data_p_img) == -1 ){
+	    perror("shmdt");
+	    exit(1);
+	}
 	
 	//Allow elimination of shared memory
 	if(shm_id > 0) shmctl(shm_id, IPC_RMID, NULL);

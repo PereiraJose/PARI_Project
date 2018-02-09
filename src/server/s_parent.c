@@ -62,14 +62,16 @@ void parent(int cpid, int argc, char *argv[]){
 
 
 	int r=InitTimer( RespondAlarm );  //Prepare timer and set RespondAlarm as the callback to be executed
-    if (! r ) return 0;               //failed in creating the timer
+    if (! r ) return;               //failed in creating the timer
 
 	int sockfd, clientsockfd, portno, pid;
 	int ret;
 	char clntName[INET_ADDRSTRLEN];			// String to contain client name
 	socklen_t clilen;
 	struct sockaddr_in serv_addr, cli_addr;
-
+	
+	
+	
 	//To avoid defuncts due to the fork() below. 
 	//It is actually the default action and occurs when Child stopped or terminated
 	//signal(SIGCHLD, SIG_IGN);
@@ -77,11 +79,7 @@ void parent(int cpid, int argc, char *argv[]){
 	//To catch CTRL_C and allow the closure of port
 	signal(SIGINT, ManageCTRL_C);
 
-	if(argc < 2){
-		fprintf(stderr, "Syntax: %s <port_num>\n", argv[0]);
-		fprintf(stderr, "ERROR, no port provided\n");
-		exit(1);
-	}
+
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);	//create a INET socket to communicate
 	if(sockfd < 0) myerror("ERROR opening socket");
 
@@ -89,7 +87,9 @@ void parent(int cpid, int argc, char *argv[]){
 	portno                    = atoi(argv[1]);	//get port number from command line
 	serv_addr.sin_family      = AF_INET;
 	serv_addr.sin_addr.s_addr = INADDR_ANY;
-
+	
+	printf("port parent %d\n", portno);
+	
 	serv_addr.sin_port        = htons(portno);
 	ret = bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr));	//bind the name to the socket
 	if(ret < 0) myerror("ERROR on binding");
@@ -98,7 +98,9 @@ void parent(int cpid, int argc, char *argv[]){
 	//start waiting for connections on the socket up to a maximum of 20 connections
 	listen(sockfd, 1);
 	clilen = sizeof(cli_addr);
-
+	
+	printf("Parent waiting for connections...\n");
+	
 	//make socket non blocking so other events may be processed inside the infinite loop
 	//An equivalent action could also be done at the socket creation...
 	int flags = fcntl(sockfd, F_GETFL, 0); fcntl(sockfd, F_SETFL, flags | O_NONBLOCK);  
@@ -116,7 +118,7 @@ void parent(int cpid, int argc, char *argv[]){
 
 		/*notify that you know the client: this is optional */
 		if(inet_ntop (AF_INET, &cli_addr.sin_addr.s_addr, clntName, sizeof(clntName)) != NULL)
-			printf("PARENT: Client %s connected/%d\n", clntName, ntohs(cli_addr.sin_port));
+			printf("Parent: Client %s connected/%d\n", clntName, ntohs(cli_addr.sin_port));
 		else
 			printf("Unable to get client address\n");
 	
@@ -148,7 +150,7 @@ void parent(int cpid, int argc, char *argv[]){
 	close(sockfd);
 	
 	/* we only get here when someone breaks the infinite loop */
-	return 0;
+	return;
 }
 
 
@@ -160,7 +162,7 @@ void parent(int cpid, int argc, char *argv[]){
  * all communications once a connection has been established.
  *
  * @param  sock The socket ID
- * @param  clientID The client ID (normally the IP)
+ * @param  char *clientID - string with clientID
  * @return  Nothing. It will return to terminate immediatly
  */
 void processclient(int sock, char *clientID){
@@ -182,7 +184,7 @@ void processclient(int sock, char *clientID){
 		if(n < 0) myerror("ERROR reading from socket");
 
 		
-		// printf("Message received from the client %s: %s\n", clientID, inbuffer);
+		//printf("Message received from the client %s: %s\n", clientID, inbuffer);
 		
 		if(!strncmp(inbuffer, "quit", 4)){
 			sprintf(outbuffer, "Client %s, you have requested to close the connection!", clientID);
@@ -200,11 +202,12 @@ void processclient(int sock, char *clientID){
 			servo1 = (int) atoi(ss)/1000;
 			servo2 = atoi(ss) - servo1*1000;
 			
+			//Imprime apenas quando há diferença de mensagem
 			if(strncmp(inbuffer, lastbuffer, 15)){
 				printf("move %c\n", move);
 				printf("direction %c\n", direction); 
 				printf("servo1 %.3d\n", servo1);
-				printf("servo2 %.3d\n", servo2);
+				printf("servo2 %.3d\n\n", servo2);
 			}
 		}
 		else{
@@ -245,9 +248,9 @@ int InitTimer( void (* func)(int) ){
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Função que ativa as saídas, se variável update passar de 6, desliga as saídas
+ * @param  int signum
+ * @return none
  */
 #ifdef OrangePI
 
@@ -319,7 +322,7 @@ void RespondAlarm(int signum){
     if(update > 1){
     	
     	if(update==2)
-    		printf("Reset output");
+    		printf("Reset output\n");
     	if(update<3)
     		update++;
     	//desactivate io

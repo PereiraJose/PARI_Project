@@ -44,7 +44,8 @@ int main(int argc, char *argv[]){
 	printf("\\_|  |_/\\_| \\_|\\____/  \n\n");
 	
 	if (argc < 3) {
-        printf("Usage: client <serverIP> <serverPort>\n");
+        printf("  Usage: client <serverIP> <serverPort>\n");
+        printf("Example: client 127.0.0.1 5000\n");
     	return 0;
     }
 
@@ -59,8 +60,8 @@ int main(int argc, char *argv[]){
         
         child( getppid(), argc, argv);
     	
-		printf("Exit child\n");
-		fflush(stdout);
+		printf("Program Terminated child\n");
+		
     }
     /* The parent */
     else {
@@ -70,11 +71,15 @@ int main(int argc, char *argv[]){
 		
 		kill(pid, SIGUSR2);  //send signal to child
 		
-    	printf("Exit Parent\n");
-    	fflush(stdout);
+		printf("___  _________  _____  \n");
+		printf("|  \\/  || ___ \\/  ___| \n");
+		printf("| .  . || |_/ /\\ `--.  \n");
+		printf("| |\\/| ||    /  `--. \\ \n");
+		printf("| |  | || |\\ \\ /\\__/ / \n");
+		printf("\\_|  |_/\\_| \\_|\\____/  \n\n");
+		
+    	printf("Program Terminated parent\n");
     }
-	
-	printf("\nProgram TERMINATED\n");
     return 0;
 }
 

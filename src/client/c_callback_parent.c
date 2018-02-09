@@ -69,14 +69,14 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 			break;
 		case GDK_KEY_a:
 			printf("key pressed - a\n");
-			if(servo2<180){
-				servo2++;
+			if(servo2){
+				servo2--;
 			}
 			break;
 		case GDK_KEY_d:
 			printf("key pressed - d\n");
-			if(servo2){
-				servo2--;
+			if(servo2<180){
+				servo2++;
 			}
 			break;
 		case GDK_KEY_Up:
@@ -158,48 +158,31 @@ gboolean on_key_release (GtkWidget *widget, GdkEventKey *event, gpointer user_da
  */
 void ParentUSR1handler(int signum){
 	// https://stackoverflow.com/questions/3906437/opencv-matrix-into-shared-memory
-    char *data; //generic pointer to serve as link for the shared memory
-    int shm_id;
-
-	shm_id = GetSharedMem();
-	if(shm_id == -1) exit(-1);     //failure
-
-	/* attach to the memory segment to get a pointer to it */
-	data = shmat(shm_id, (void *) 0, 0);
-	if(data == (char *) (-1)){
-	    perror("shmat");
-	    exit(1);
-	}
-    
-    s->data.ptr = data;
     
     // Converter Mat to IplImage
     // http://opencv-users.1802565.n2.nabble.com/Convert-cvMat-to-IplImage-td7472881.html
     cvGetImage( s, image );
+    
+    //printf("size image %d \n", img->imageSize); 
     
     cvCopy(image, img, 0);
     
     // cvShowImage("Parent image", img);
     
     pari_RefreshDrawingArea("drawingarea1", img );
-    
-    /* detach from the mem segment since it is leaving */
-	if(  shmdt(data) == -1 ){
-	    perror("shmdt");
-	    exit(1);
-	}
 }
 
 
 /**
  * @brief  Callback por timeout - Envio da mensagem de controlo para o sistema remoto
  * @param  int *socket_desc - socket do cliente remoto
- * @return none
+ * @return 1 - Continue timeout active
  */
-void send_info(int *socket_desc){
+int send_info(int *socket_desc){
 	char message[32];
 	sprintf(message, "control%c%c%.3d%.3d", move, direction, servo1, servo2);
     int ret = send(*socket_desc, message, strlen(message) , 0);
     if( ret < 0) { puts("Send failed"); }
+    return 1;
 }
 

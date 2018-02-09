@@ -32,6 +32,6 @@ void myerror(const char *msg){
  * @return none
  */
 void ManageCTRL_C(int dummy){
-	printf("User CTRL-C pressed. Closing server.\n");
+	printf("\nUser CTRL-C pressed. Closing server.\n");
 	infinite_loopG=0;
 }

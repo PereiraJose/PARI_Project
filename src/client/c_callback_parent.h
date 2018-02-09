@@ -28,7 +28,7 @@ gboolean pari_delete_event(GtkWidget * window, GdkEvent * event, gpointer data);
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
 gboolean on_key_release (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
 
-void send_info(int *socket_desc);
+int send_info(int *socket_desc);
 void ParentUSR1handler(int signum);
 
 #endif /* __C_CALLBACK_PARENT_H__ */

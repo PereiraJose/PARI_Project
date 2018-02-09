@@ -28,7 +28,7 @@
 
 
 void child(int ppid, int argc, char *argv[]);
-void display(int client_Socket);
+void display(int client_Socket, char *clientID);
 
 // https://stackoverflow.com/questions/42918747/yolo-c-compilation-failure-with-debug-1
 int cvRound(double value);

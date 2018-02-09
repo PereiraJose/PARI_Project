@@ -29,7 +29,7 @@
 int GetSharedMem(void){
     key_t key;                       /*it's a long int */
     int shm_id;
-    key = ftok("PARI.glade", 'X');       /* generate a random key based on a file name and char */
+    key = ftok("PARI.glade", 'a');       /* generate a random key based on a file name and char */
     //key = ftok("/", 'X');
     //key = ftok("/boot", 'X');
     if(key == -1) { perror("ftok"); return -1; }

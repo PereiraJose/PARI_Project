@@ -40,7 +40,7 @@
 
 #include "../defines_common.h"
 
-#define SHM_SIZE 230400
+#define SHM_SIZE IMAGE_WIDTH*IMAGE_HEIGHT*3
 
 
 #if defined (_MAIN_C_)
@@ -59,6 +59,8 @@
 	
 	int infinite_loopG = 1;
 	
+	char *data_p_img; //generic pointer to serve as link for the shared memory
+	
 #else
 	extern GtkBuilder *builderG;
 	//extern IplImage *dst_imageG , *src_imageG;
@@ -73,6 +75,8 @@
 	extern int add_servo2;
 	extern int servo1; // angle servo1
 	extern int servo2; // angle servo2
+	
+	extern char *data_p_img;
 	
 	extern int infinite_loopG;
 #endif

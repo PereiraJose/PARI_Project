@@ -50,16 +50,25 @@ Processo pai
 	2-Timer que ativa as saídas e verifica se não existir comunicação desliga as saídas
 \endverbatim
 
-@section d Github
+@section d Teclas
+
+\verbatim
+	Setas direcionais - Controlo do carro
+	w, s - Controlo do servo1
+	a, d - Controlo do servo2
+\endverbatim
+
+@section e Github
 
 Código disponível em: <br>
 https://github.com/PereiraJose/PARI_Project
 
-@section e Trabalho futuro
+@section f Trabalho futuro
 
 Adicionar arduino para controlo dos servo-motores
 
-@section f Aspetos a melhorar
-Interface gráfica ocasionalmento bloqueia, em certas situação o GTK continua a enviar mensagens de controlo. Como o servidor continua a receber informação as saídas continuam ativas. Nestas situações o processo filho do cliente continua ativo após forçar paragem do processo pai.
+@section g Aspetos a melhorar
+Interface gráfica ocasionalmento bloqueia, em certas situação o GTK continua a enviar mensagens de controlo. Como o servidor continua a receber informação as saídas continuam ativas. Nestas situações o processo filho do cliente continua ativo após forçar paragem do processo pai. No servidor também não ocorre o fecho de comunicações, este precisa de ser reiniciado.
+Pode acontecer passado  alguns segundos após começar o programa ou passado alguns minutos.
 
 */

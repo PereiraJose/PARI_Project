@@ -37,11 +37,7 @@ void child(int ppid, int argc, char *argv[]){
     int         soket;
     char*       serverIP;
     int         serverPort;
-	
-    if (argc < 3) {
-        //printf("Usage: client <serverIP> <serverPort>");
-    	return;
-    }
+
 
     serverIP   = argv[1];
     serverPort = atoi(argv[2]) + 1;
@@ -49,7 +45,7 @@ void child(int ppid, int argc, char *argv[]){
     struct  sockaddr_in address;
 
     if ((soket = socket(PF_INET, SOCK_STREAM, 0)) < 0) {
-        printf("socket() failed");
+        printf("socket() failed\n");
         return;
     }
 
@@ -59,10 +55,12 @@ void child(int ppid, int argc, char *argv[]){
 
     if (connect(soket, (struct sockaddr*) &address, sizeof(address)) < 0) {
         // std::cerr << "connect() failed!" << std::endl;
-        printf("connect() failed!");
+        printf("connect() failed!\n");
         return;
     }
-
+	
+	printf("Child connected\n");
+	
     //----------------------------------------------------------
     //OpenCV Code
     //----------------------------------------------------------
@@ -139,9 +137,11 @@ void child(int ppid, int argc, char *argv[]){
 	
 	//cvDestroyWindow("CV Video Client");
 	
+	/*
 	cvReleaseImage (&img);
 	cvReleaseMat (&s);
 	cvReleaseMat (&tmp);
+	*/
 	
 	//close the socket before exiting
     close(soket);
@@ -153,6 +153,6 @@ void child(int ppid, int argc, char *argv[]){
  * @return none
  */
 void ChildUSR2handler(int signum){
-	printf("User Terminate.\n");
+	printf("Exit child.\n");
 	infinite_loopG=0;
 }

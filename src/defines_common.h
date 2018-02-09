@@ -19,10 +19,10 @@
 //#define OrangePI
 
 
-// #define IMAGE_WIDTH  320
-// #define IMAGE_HEIGHT 240
-#define IMAGE_WIDTH  160
-#define IMAGE_HEIGHT 120
+ #define IMAGE_WIDTH  640
+ #define IMAGE_HEIGHT 480
+//#define IMAGE_WIDTH  160
+//#define IMAGE_HEIGHT 120
 
 
 

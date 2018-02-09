@@ -43,7 +43,7 @@ void child(int ppid, int argc, char *argv[]){
 
     struct  sockaddr_in server_Addr, client_Addr;
     int addrLen = sizeof(struct sockaddr_in);
-    
+    char clntName[INET_ADDRSTRLEN];			// String to contain client name
     
     //To avoid defuncts due to the fork() below. 
 	//It is actually the default action and occurs when Child stopped or terminated
@@ -53,17 +53,8 @@ void child(int ppid, int argc, char *argv[]){
 	signal(SIGINT, ManageCTRL_C);
 
     
-    if ( (argc > 1) && (strcmp(argv[1],"-h") == 0) ) {
-          /*
-          std::cerr << "usage: server [port] [capture device]\n" <<
-                       "port           : socket port (4097 default)\n" <<
-                       "capture device : (0 default)\n" << std::endl;
-          */
-          exit(1);
-    }
-
-    if (argc == 2) port = atoi(argv[1]) + 1;
-	printf("port %d\n", port);
+	port = atoi(argv[1]) + 1;
+	printf("port child %d\n", port);
 
     server_Socket = socket(AF_INET , SOCK_STREAM , 0);
 	if(server_Socket < 0) myerror("ERROR opening socket");  
@@ -80,7 +71,7 @@ void child(int ppid, int argc, char *argv[]){
     //start waiting for connections on the socket up to a maximum of 2 connections
     listen(server_Socket , 1);
 	
-	printf("Waiting for connections...\n");
+	printf("Child waiting for connections...\n");
     
 	//make socket non blocking so other events may be processed inside the infinite loop
 	//An equivalent action could also be done at the socket creation...
@@ -97,10 +88,17 @@ void child(int ppid, int argc, char *argv[]){
 		}
 		//else 
 		//	break;
+		
+		/*notify that you know the client: this is optional */
+		if(inet_ntop (AF_INET, &client_Addr.sin_addr.s_addr, clntName, sizeof(clntName)) != NULL)
+			printf("Child: Client %s connected/%d\n", clntName, ntohs(client_Addr.sin_port));
+		else
+			printf("Unable to get client address\n");
 			
-		printf("CHILD: New Client\n");
-		display(client_Socket);
+		display(client_Socket, clntName);
 		close(client_Socket);
+		
+		
 		/*
 		//create a process child to manage the connection
 		pid = fork();	                         
@@ -131,11 +129,11 @@ void child(int ppid, int argc, char *argv[]){
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Leitura de imagem da câmara
+ * @param  int client_Socket socket do cliente para enviar imagem
+ * @return none
  */
-void display(int client_Socket){
+void display(int client_Socket, char *clientID){
 
     //OpenCV Code 
 	IplImage *img = cvCreateImage( cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), IPL_DEPTH_8U, 3);
@@ -154,7 +152,7 @@ void display(int client_Socket){
     
     int bytes = 0;
     
-    const int BUFFSIZE=16;
+    const int BUFFSIZE=32;
     char inbuffer[BUFFSIZE];
 	
     while(infinite_loopG) {
@@ -166,7 +164,7 @@ void display(int client_Socket){
 
 		//send processed image
 		if ((bytes = send(client_Socket, img->imageData, imgSize, 0)) < 0){
-			printf("CHILD: error sending!!!");
+			printf("CHILD: error sending!!!\n");
 			break;
 		}
 		
@@ -180,11 +178,7 @@ void display(int client_Socket){
 		cvWaitKey (50);
 		
 	}
+	cvReleaseCapture(&capture);
 	
-	 cvReleaseCapture(&capture);
-	
-	printf("CHILD: Exit Client\n");
-	//exit(1);
-	
-	
+	printf("\nCHILD: Connection to client %s terminated.\n", clientID);
 }

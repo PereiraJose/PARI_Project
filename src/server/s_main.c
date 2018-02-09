@@ -27,9 +27,11 @@
 
 
 /**
- * @brief  
- * @param  
- * @return 
+ * @brief  Programa divide-se em dois
+ ver child(ppid, argc, argv) e parent(cpid, argc, argv)
+ * @param  int argc - numero de parâmetros introduzidos na linha de comandos
+ * @param  char *argv[] - array com os parâmetros introduzidos na linha de comandos
+ * @return 0
  */
 int main(int argc, char *argv[]){
 	
@@ -42,9 +44,12 @@ int main(int argc, char *argv[]){
 	printf("\\_|  |_/\\_| \\_|\\____/  \n\n");
 	
 	if (argc < 2) {
-        printf("Usage: client <serverPort>\n");
+        printf("  Usage: server <serverPort>\n");
+        printf("Example: server 5000\n");
     	return 0;
     }
+    
+    printf("Terminar programa com CTRL-C\n");
 
 
 	int pid = fork();
